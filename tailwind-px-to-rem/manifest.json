@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "Tailwind PX to REM convertor",
+    "version": "1.0.0",
+    "description": "A simple tailwind PX to REM convertor",
+    "icons": {
+        "48": "images/icon-48.png",
+        "128": "images/icon-128.png"
+    },
+    "action": {
+        "default_title": "Tailwind PX to REM convertor",
+        "default_popup": "index.html"
+    }
+}

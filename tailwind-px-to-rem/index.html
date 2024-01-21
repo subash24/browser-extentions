@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind px to rem calculator</title>
+    <style>
+      body {
+        background: #f8f8f8;
+        min-width: 260px;
+        padding: 20px 16px;
+      }
+      .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 20px;
+      }
+      .heading-1 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        color: #6528f7;
+        text-align: center;
+        padding-bottom: 20px;
+      }
+      .logo {
+        width: 128px;
+        margin: 0 auto;
+      }
+      .input-container {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+      }
+      .px-label,
+      .rem-label,
+      .unit-label {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+        color: #232323;
+      }
+      .rem-label{
+        color: #6528f7;
+      }
+      .px-input,
+      .rem-input,
+      .unit-input {
+        height: 40px;
+        padding: 4px 16px;
+        font-size: 28px;
+        width: 100%;
+        border: 1.6px solid #ede4ff;
+        margin-top: 8px;
+        box-sizing: border-box;
+        border-radius: 4px;
+      }
+      .px-input:focus,
+      .rem-input:not([disabled]):focus,
+      .unit-input:focus {
+        border-color: #6528f7;
+        outline: none;
+      }
+      .rem-input {
+        background: #fefefe;
+        cursor: copy;
+        color: #6528f7;
+      }
+      .copy-message {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        background: #6528f7;
+        transform: translate(-50%, 0%);
+        padding: 4px 20px;
+        color: #fff;
+        border-radius: 4px;
+        font-size: 12px;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .animate-fade {
+        animation: fade 1.5s cubic-bezier(0.33, 0.39, 0.11, 0.99);
+      }
+
+      @keyframes fade {
+        0% {
+          transform: translate(-50%, 0%);
+          opacity: 1;
+          visibility: visible;
+        }
+        100% {
+          transform: translate(-50%, -50px);
+          opacity: 0;
+        }
+      }
+
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img class="logo" src="images/icon-128.svg" alt="logo" />
+      <div class="input-container">
+        <div>
+          <label class="px-label">PX</label>
+          <input type="number" class="px-input" autocomplete="false" />
+        </div>
+        <div>
+          <label class="unit-label">UNIT</label>
+          <input type="number" class="unit-input" />
+        </div>
+      </div>
+      <div style="padding-top: 24px; position: relative">
+        <label class="rem-label">REM</label>
+        <input type="number" class="rem-input" readonly step="0.01" />
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="#6528f7"
+          style="
+            margin-top: 16px;
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            translate: -50%;
+            pointer-events: none;
+          "
+        >
+          <path
+            d="M21 8.94a1.31 1.31 0 0 0-.06-.27v-.09a1.07 1.07 0 0 0-.19-.28l-6-6a1.07 1.07 0 0 0-.28-.19.32.32 0 0 0-.09 0 .88.88 0 0 0-.33-.11H10a3 3 0 0 0-3 3v1H6a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-1h1a3 3 0 0 0 3-3V8.94Zm-6-3.53L17.59 8H16a1 1 0 0 1-1-1ZM15 19a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h1v7a3 3 0 0 0 3 3h5Zm4-4a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3v3a3 3 0 0 0 3 3h3Z"
+          />
+        </svg>
+      </div>
+      <div class="copy-message">copied</div>
+    </div>
+    <script src="./index.js" async defer></script>
+  </body>
+</html>
